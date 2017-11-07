@@ -1,21 +1,17 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import SignIn from './SignIn';
+import CurrentUser from './CurrentUser';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+const App = ({ auth, signIn, signOut }) => {
+  return (
+    <main className="Application">
+      <div className="Application--sidebar">
+        { auth.status === 'ANONYMOUS' && <SignIn signIn={signIn}/> }
+        { auth.status === 'SIGNED_IN' && <CurrentUser auth={auth} signOut={signOut} />}
       </div>
-    );
-  }
-}
+    </main>
+  );
+};
 
 export default App;
