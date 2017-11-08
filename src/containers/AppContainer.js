@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Application from '../App';
+import Application from '../components/App';
 import { signIn, signOut } from '../actions/auth';
 
 
