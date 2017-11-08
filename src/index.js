@@ -9,6 +9,8 @@ import './index.css';
 import App from './containers/AppContainer';
 import registerServiceWorker from './registerServiceWorker';
 
+import { startListeningToAuthChanges } from './actions/auth'
+
 const middleware = [ thunk ];
 const enhancers = [];
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -21,6 +23,8 @@ const store = createStore(
     ...enhancers
   )
 );
+
+store.dispatch(startListeningToAuthChanges());
 
 ReactDOM.render(
   <Provider store={store}>
