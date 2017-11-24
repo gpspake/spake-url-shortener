@@ -3,6 +3,7 @@ import './App.css';
 import SignIn from './SignIn';
 import CurrentUser from './CurrentUser';
 import Loading from './Loading';
+import Messages from '../containers/MessagesContainer';
 
 const App = ({ auth, signIn, signOut }) => {
   return (
@@ -12,6 +13,7 @@ const App = ({ auth, signIn, signOut }) => {
         { auth.status === 'SIGNED_IN' && <CurrentUser auth={auth} signOut={signOut} />}
         { auth.status === 'AWAITING_AUTH_RESPONSE' && <Loading /> }
       </div>
+      <Messages/>
     </main>
   );
 };
